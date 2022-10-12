@@ -22,7 +22,7 @@
           <input type="text" class="form-control" id="email">
         </div>
         <div class="my-3">
-          <input type="password" class="form-control">
+          <input type="password" class="form-control" id="pw">
         </div>
         <button type="submit" class="btn btn-primary" id="send">전송</button>
         <button type="button" class="btn btn-danger" id="close">닫기</button>
@@ -37,11 +37,20 @@
     // document.getElementById('form-control').addEventListener('click', function(){
     // $('foam').on('submit',fuction(){})
     // }
-    document.getElementById('send').addEventListener('click',function(){
-      //var check = document.getElementsByClassName("form-controls").value;
+    document.getElementById('send').addEventListener('submit',function(){
       if (document.getElementById("email").value==''){
-        alert("아이디를 입력하세오");
-      return getElementsByClass('black-bg').show();
+        alert("아이디를 입력하세요");
+      } else if (/\S+@\S+\.\S+/.test(document.getElementById("email").value==false)){
+        alert('이메일형식 아님');
+      }
+      if (document.getElementById("email").value=='', document.getElementById("pw").value==''){
+        alert("비번을 입력하세요");
+        e.preventDefault();
+      } else if (document.getElementById("pw").value.length < 6){
+        alert("비번을 6자 이상 입력하세요");
+        e.preventDefault();
+      } else if (/[A-Z]/.test(document.getElementById("pw").value==false)){
+        alert('영어대문자 없음');
       }
     });
   </script>
@@ -49,11 +58,34 @@
   <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
+       
+        <!-- 다크모드 -->
+        <span class="badge bg-dark">Dark 🔄</span>
+
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
      </div>
   </nav> 
+
+  <script>
+     //다크모드,라이트모드 => badge 클릭 횟수가 홀수/짝수
+     //badge 1회 클릭시 dark모드 되기
+     //badge 2회 클릭시 light모드 되기
+     //badge 3회 클릭시 dark모드 되기
+     //badge 4회 클릭시 light모드 되기....
+     
+    var count = 0;
+    document.querySelector('.badge').addEventListener('click',function(){
+      count+=1;
+      if (count%2==1) {
+        document.querySelector('.badge').innerHTML('Light 🔄')
+      } else {
+        document.querySelector('.badge').innerHTML('Dark 🔄')
+      }
+    });
+  </script>
+
   <ul class="list-group">
     <li class="list-group-item">An item</li>
     <li class="list-group-item">A second item</li>
@@ -66,18 +98,111 @@
     <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
-  <script>
+  <script> //모달창 열고 닫기
     document.querySelector('.navbar-toggler').addEventListener('click',function(){
       document.querySelectorAll('.list-group')[0].classList.toggle('show');
-    })
-
+    });
     document.getElementById('login').addEventListener('click',function(){
       document.querySelector('.black-bg').classList.toggle('show-modal')
-    })
-    document.getElementById('close').addEventListener('click',function(){
-      document.querySelector('.show-modal').classList.toggle('black-bg')
-    })
+    });
+    // document.querySelector('close').addEventListener('click',function(){
+    //   document.querySelector('.show-modal').classList.toggle('black-bg')
+    // });
   </script>
+
+  <!-- 5초 후에 아래 div 박스 안 보이게 만들기 setTimeout -->
+  <!-- <div class="alert alert-danger">
+    5초 이내 구매시 사은품 증정!
+  </div>
+  <script>
+    setTimeout(function(){
+      document.querySelector('.alert').style.display='none'  //$('.alert').hide()
+    }, 5000)
+  </script> -->
+
+  <div class="alert alert-danger">
+    <span class='min'>5</span>초 이내 구매시 사은품 증정!
+  </div>
+  <script>
+    var count = 5;
+    var timer = setInterval(countDown, 1000)
+    function countDown(){
+      if (document.querySelector('.min').innerHTML>0) {
+        document.querySelector('.min').innerHTML-=1;
+      } else {
+        clearTimeout(timer);
+        document.querySelector('.alert').style.display='none';
+      }
+    }
+  </script>
+  
+  <div style="overflow: hidden">
+    <div class='slide-container'>
+      <div class="slide-box">
+        <img src="Zev_1-27-3.png">   
+      </div>
+      <div class="slide-box">
+        <img src="Zev_1-27-4.png">   
+      </div>
+      <div class="slide-box">
+        <img src="Zev_1-27-5.png">   
+      </div>
+    </div>
+  </div>  
+
+  <button class="before">◀️</button>
+  <button class="slide-1" value='1'>1</button>
+  <button class="slide-2" value='2'>2</button>
+  <button class="slide-3" value='3'>3</button>
+  <button class="next">▶️</button>
+
+  <script>
+    document.querySelector('.slide-1').addEventListener('click',function(){
+      document.querySelector('.slide-container').style.transform='translateX(0)'
+    });
+    document.querySelector('.slide-2').addEventListener('click',function(){
+      document.querySelector('.slide-container').style.transform='translateX(-100vw)'
+    });
+    document.querySelector('.slide-3').addEventListener('click',function(){
+      document.querySelector('.slide-container').style.transform='translateX(-200vw)'
+    });
+
+    //jQuery사용: document.querySelector('.slide-container').css('transform','translateX(-100vw)')
+    
+    // 지금 보이는 사진이 1이면 2번 사진 보여주세요~
+    // 지금 보이는 사진이 2이면 3번 사진 보여주세요~
+    // var 지금사진 = 1;
+    // document.querySelector('.next').addEventListener('click',function(){
+    //   if (지금사진 == 1) {
+    //     document.querySelector('.slide-container').style.transform='translateX(-100vw)'
+    //     지금사진+=1;
+    //   } else if (지금사진 == 2) {
+    //     document.querySelector('.slide-container').style.transform='translateX(-200vw)'
+    //     지금사진+=1;
+    //   }
+    // });
+    // 지금 보이는 사진이 3이면 2번 사진 보여주세요~
+    // 지금 보이는 사진이 2이면 1번 사진 보여주세요~
+    // document.querySelector('.before').addEventListener('click',function(){
+    //   if (지금사진==3){
+    //     document.querySelector('.slide-container').style.transform='translateX(-100vw)'
+    //     지금사진-=1;
+    //   } else if (지금사진==2) {
+    //     document.querySelector('.slide-container').style.transform='translateX(0vw)'
+    //     지금사진-=1;
+    //   }
+    // });
+
+    var 지금사진 = 1;
+    document.querySelector('.next').addEventListener('click',function(){
+      document.querySelector('.slide-container').style.transform='translateX(-'+지금사진+'00vw)';
+      지금사진+=1;
+    document.querySelector('.before').addEventListener('click',function(){
+      document.querySelector('.slide-container').style.transform='translateX(-'+지금사진+'00vw)';ㄴ
+      지금사진-=1;
+
+  </script>
+
 
 
 

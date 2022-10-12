@@ -26,3 +26,18 @@
     padding:100px 20px;
     background-color: lightgrey;
 }
+
+.slide-container {
+    width:300vw; 
+    /* margin-left:-200vw; */
+    transition: all 1s;    
+    /* transform: translateX(-100vw); 최종화면 */
+
+}
+.slide-box {
+    width:100vw;
+    float:left;
+}
+.slide-box img {
+    width:100%
+}

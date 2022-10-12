@@ -8,5 +8,44 @@
 </head>
 <body>
     폼 전송 완료~!~!
+
+    <script>
+        var first = 60000;
+        var future = 0;
+        if (first>50000) {
+            future = first*1.20*1.20;
+        } else {
+            future = first*1.15*1.15;
+        }
+        console.log(future);
+    </script>
+
+<script>
+    var first = 360;
+    var max = 0;
+    max = first + first*2/3 + first*2/3*2/3;
+    console.log(max); 
+</script>
+
+
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+
+    <script>
+        var count=0;
+        document.querySelector('#send-answer').addEventListener('click',function(){
+            count += 1;
+            var userAnswer = document.querySelector("#answer").value;
+            if (userAnwer == '1335') {
+                alert('성공');
+            } else if (count >= 3 && userAnwer != '1335') {
+                alert('멍청아')
+            }
+        });
+
+    </script>
+
+
 </body>
 </html>
