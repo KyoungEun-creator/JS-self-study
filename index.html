@@ -68,6 +68,18 @@
      </div>
   </nav> 
 
+  <!-- 윈도우 스크롤 이벤트 -->
+  <script> //페이지 스크롤바 100 이상 내리면 로고 폰트 사이즈 줄이기
+  window.addEventListener('scroll',function(){
+    if (window.scrollY >= 100) {
+    document.querySelector('.navbar-brand').style.fontSize = '20px';
+  } else {
+    document.querySelector('.navbar-brand').style.fontSize = '30px';
+  }
+  })
+
+  </script>
+
   <script>
      //다크모드,라이트모드 => badge 클릭 횟수가 홀수/짝수
      //badge 1회 클릭시 dark모드 되기
@@ -98,6 +110,25 @@
     <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
+<!-- div 박스 스크롤 이벤트 -->
+  <div class="lorem" style="width : 200px; height : 100px; overflow-y : scroll">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+  </div>
+  <div style="height:1000px"></div> <!-- 스크롤할 수 있게 빈칸 만듦 -->
+
+  <script> //div의 스크롤바 내린 양 + 눈에 보이는 div박스의 높이(100px) == div 실제높이일 때(즉, 끝까지 내렸을 때) alert 창 띄우기
+
+  document.querySelector('.lorem').addEventListener('scroll',function(){
+    var 스크롤양 = document.querySelector('.lorem').scrollTop;  //404
+    var 실제높이 = document.querySelector('.lorem').scrollHeight;
+    var 높이 = document.querySelector('.lorem').clientHeight;
+    if (스크롤양 + 높이 >= 실제높이-10) {
+      alert('회원약관 전체 스크롤 완료');
+    }
+  })
+
+  </script>
+
   <script> //모달창 열고 닫기
     document.querySelector('.navbar-toggler').addEventListener('click',function(){
       document.querySelectorAll('.list-group')[0].classList.toggle('show');
@@ -109,6 +140,7 @@
     //   document.querySelector('.show-modal').classList.toggle('black-bg')
     // });
   </script>
+
 
   <!-- 5초 후에 아래 div 박스 안 보이게 만들기 setTimeout -->
   <!-- <div class="alert alert-danger">
