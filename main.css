@@ -1,6 +1,6 @@
-.alert-box {
-    background-color:mediumseagreen;
-    color:oldlace;
-    font-size: medium;
+.list-group {
     display:none;
+}
+.show {
+    display:block;
 }
