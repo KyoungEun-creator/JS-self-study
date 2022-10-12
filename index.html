@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="alert" id="alert">아이디 입력<button onclick="alertShow('none')">닫기</button></div>
+    <div class="alerts" id="alerts">비밀번호 입력<button onclick="alertShow2('none')">닫기</button></div>
+    <button onclick="alertShow('block')">버튼1</button>
+    <button onclick="alertShow2('block')">버튼2</button>
+
+
+    <script>
+        function alertShow(click){
+            document.getElementById('alert').style.display=click;
+        }
+        function alertShow2(click){
+            document.getElementById('alerts').style.display=click;
+        }
+    </script> -->
+
+    <div class="alert-box" id='alert'>
+        <p id='content'>입력창</p>
+        <button onclick="알림창열기('none')">닫기</button>
+    </div>
+    <button onclick="입력('block','아이디입력')">버튼1</button>
+    <button onclick="입력('block','비밀번호입력')">버튼2</button>
+
+    <script>
+        function 알림창열기(클릭){
+            document.getElementById('alert').style.display=클릭;
+        }
+        function 입력(여닫,입력){
+            document.getElementById('alert').style.display=여닫;
+            document.getElementById('content').innerHTML=입력; 
+        }
+        // function 비밀번호입력(){
+        //     document.getElementById('alert').style.display='block';
+        //     document.getElementById('content').innerHTML='비밀번호 입력'; 
+        // }
+
+        // document.getElementById(content).innerHTML = '아이디 입력'
+        // document.getElementById(content).innerHTML = '비밀번호 입력'
+
+        // function content(request){
+        //     document.getElementById(content).innerHTML=request;
+        // }
+
+    </script>
+
+
+</body>
+</html>
