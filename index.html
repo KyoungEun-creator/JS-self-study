@@ -13,33 +13,75 @@
 
 </head>
 <body>
-  
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <span class="navbar-brand">Navbar</span>
-          <button class="navbar-toggler" type="button">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>로그인하세요</h4>
+
+      <form action="success.html">
+        <div class="my-3">
+          <input type="text" class="form-control" id="email">
         </div>
-      </nav> 
+        <div class="my-3">
+          <input type="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary" id="send">전송</button>
+        <button type="button" class="btn btn-danger" id="close">닫기</button>
+      </form> 
 
-      <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
-      </ul> 
+    </div>
+  </div> 
 
-      <script>
-        document.querySelector('.navbar-toggler').addEventListener('click',function(){
-            document.querySelectorAll('.list-group')[0].classList.toggle('show');
-        })
-      </script>
+  <script>
+    // 전송버튼 누르면
+    // 첫번째 input에 입력한 값이 공백이면 alert창 띄워주세요
+    // document.getElementById('form-control').addEventListener('click', function(){
+    // $('foam').on('submit',fuction(){})
+    // }
+    document.getElementById('send').addEventListener('click',function(){
+      //var check = document.getElementsByClassName("form-controls").value;
+      if (document.getElementById("email").value==''){
+        alert("아이디를 입력하세오");
+      return getElementsByClass('black-bg').show();
+      }
+    });
+  </script>
+
+  <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+     </div>
+  </nav> 
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul> 
+  <div class="main-bg">
+    <h4>Shirts on Sale</h4>
+    <button id="login" class="btn btn-danger">로그인</button>
+  </div>
+
+  <script>
+    document.querySelector('.navbar-toggler').addEventListener('click',function(){
+      document.querySelectorAll('.list-group')[0].classList.toggle('show');
+    })
+
+    document.getElementById('login').addEventListener('click',function(){
+      document.querySelector('.black-bg').classList.toggle('show-modal')
+    })
+    document.getElementById('close').addEventListener('click',function(){
+      document.querySelector('.show-modal').classList.toggle('black-bg')
+    })
+  </script>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </body>
 </html>
