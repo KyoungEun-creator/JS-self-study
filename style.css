@@ -1,45 +1,33 @@
 body {
-    margin:0;
-    height:2000px;
+    margin: 0;
+    height: 2000px;
+    background: black;
 }
 section {
-    height: 800px;
-    background: url(https://www.starbucks.co.kr/common/img/main/fav_prod_bg_new.jpg) fixed;
+    height: 100vh;
+    background: url(https://assets.nflxext.com/ffe/siteui/vlv3/9737377e-a430-4d13-ad6c-874c54837c49/945eec79-6856-4d95-b4c6-83ff5292f33d/KR-ko-20220111-popsignuptwoweeks-perspective_alpha_website_large.jpg);
 }
-.photo {
+section:before {
+    content:'';
+    background: linear-gradient(to top, black, transparent);
     position: absolute;
-    top: 100px;
-    right: 200px;
+    left: 0; /*왼쪽에 공간여백 주지 말고 시작하라*/
+    height: 100%;
+    width: 100%; /*콘텐츠의 사이즈를 지정해줌*/
 }
 h1 {
-    font-size: 4em;
-    width: 258px;
     color: white;
-    font-family: sans-serif;
+    font-size: 6em;
     position: absolute;
-    top: 80px;
-    left: 200px;
-    animation: slide 1s ease-out;
-
+    top: 200px;
+    left: 50px;
+    font-family: sans-serif;
 }
-
-@keyframes slide {
-    from {
-        left: -100px;
-        opacity: 0;
-    }
-    to {
-        left: 200px;
-        opacity: 1;
-    }
-}
-@keyframes slide-back {
-    from {
-        left: 200px;
-        opacity: 1;
-    }
-    to {
-        left: -100px;
-        opacity: 0;
-    }
+h2 {
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    top: 380px;
+    left: 50px;
+    font-family: sans-serif;
 }
